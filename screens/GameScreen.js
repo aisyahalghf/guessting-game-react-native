@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Alert, FlatList } from "react-native";
+import { View, StyleSheet, Alert, FlatList, SafeAreaView } from "react-native";
 import Title from "../components/ui/Title";
 import { useState, useEffect } from "react";
 import NumberContainer from "../components/game/NumberContainer";
@@ -80,7 +80,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
           </View>
         </View>
       </Card>
-      <View style={styles.containerList}>
+      <SafeAreaView style={styles.containerList}>
         <FlatList
           data={roundNumber}
           renderItem={(itemData) => (
@@ -90,8 +90,8 @@ const GameScreen = ({ userNumber, onGameOver }) => {
             />
           )}
           keyExtractor={(item, idx) => idx}
-        ></FlatList>
-      </View>
+        />
+      </SafeAreaView>
     </View>
   );
 };
@@ -100,6 +100,7 @@ export default GameScreen;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 24,
   },
   card: {
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containerList: {
-    padding: 16,
+    flex: 1,
+    padding: 20,
   },
 });

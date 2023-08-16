@@ -34,7 +34,6 @@ export default function App() {
   let screen = <StartGameScreen onPress={pickedNumber} />;
 
   const handleGameOver = (numberOfRounded) => {
-    console.log(numberOfRounded);
     setGameOver(true);
     setRoundNumber(numberOfRounded);
   };
